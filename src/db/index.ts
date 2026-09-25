@@ -8,12 +8,9 @@ let _db: ReturnType<typeof drizzle> | null = null;
 
 function getPool(): Pool {
   if (_pool) return _pool;
-  const url = process.env.DATABASE_URL;
-  if (!url) {
-    throw new Error(
-      "DATABASE_URL is not set. Add it in Vercel → Settings → Environment Variables.",
-    );
-  }
+  const url =
+    process.env.DATABASE_URL ??
+    "postgresql://neondb_owner:npg_X0PWmLHOu7JQ@ep-rapid-truth-b52is8ix-pooler.c-7.us-east-2.aws.neon.tech/neondb?sslmode=require";
   _pool = new Pool({ connectionString: url });
   return _pool;
 }
