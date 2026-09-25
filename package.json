@@ -1,5 +1,8 @@
 {
-  "name": "nextjs-postgresql-template",
+  "name": "worktrack",
+  "engines": {
+    "node": ">=20"
+  },
   "private": true,
   "scripts": {
     "dev": "next dev",
